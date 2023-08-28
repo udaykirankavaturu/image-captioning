@@ -1,0 +1,6 @@
+fileignoreconfig:
+- filename: app/package-lock.json
+  checksum: 4fa09b5e65fc98f423f196e82b2605c53160956be467530960616524852ba08e
+- filename: app/src/ImageCaptioningApp.js
+  checksum: 7ce7572820c1dd4571a8d24f0c98769dda66a2b3341a10ec7272b03b6130132e
+version: ""

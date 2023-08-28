@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import FormData from 'form-data';
 
 const API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large";
 const API_KEY = "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";
@@ -18,12 +17,7 @@ function ImageCaptioningApp() {
             return;
         }
 
-        const formData = new FormData();
-        formData.append('file', selectedFile);
-
         try {
-            console.log(formData.get('file'))
-            console.log(selectedFile)
             const response = await axios.post(API_URL, selectedFile, {
                 headers: {
                     Accept: 'application/json',
@@ -31,7 +25,6 @@ function ImageCaptioningApp() {
                     'Content-Type': selectedFile.type
                 },
             });
-            console.log({ response })
             setCaption(response.data[0]['generated_text']);
         } catch (error) {
             console.error('Error uploading file:', error);
