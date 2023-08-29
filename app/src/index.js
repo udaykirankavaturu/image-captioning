@@ -4,6 +4,7 @@ import ImageCaptioningApp from './ImageCaptioningApp';
 import './index.css';
 import About from './about';
 import Navbar from './navbar';
+import Gallery from './gallery';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,6 +12,7 @@ ReactDOM.render(
       <Navbar />
       <About />
       <ImageCaptioningApp />
+      <Gallery />
     </div>
 
   </React.StrictMode>,

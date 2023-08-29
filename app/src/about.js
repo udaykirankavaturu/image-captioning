@@ -20,31 +20,18 @@ const About = () => {
                 <b>Machine Learning Model: </b><br />
                 The is Salesforce/blip-image-captioning-large available on HuggingFace. The app consumes this model using the Hosted Inference API authenticated with a user token.
                 <br />
-                <a href='https://huggingface.co/Salesforce/blip-image-captioning-large' target="_blank" rel="noopener noreferrer">Link to the model</a>
+                <br />
+                <a href='https://huggingface.co/Salesforce/blip-image-captioning-large' target="_blank" rel="noopener noreferrer">Link to the model page</a>
                 <br />
                 <br />
-
                 <b>Code Repository: </b><br />
-                <a href='https://github.com/udaykirankavaturu/lstm-stock-price-predictor' target="_blank" rel="noopener noreferrer">Link</a>
-
-                <br />
-                <br />
-                <b>Detailed explanation: </b><br />
-                <a href='https://udaykiran.tech/predicting-stock-prices-through-deep-learning' target="_blank" rel="noopener noreferrer">Predicting Stock Prices Through Deep Learning.</a>
-
+                <a href='https://github.com/udaykirankavaturu/image-captioning' target="_blank" rel="noopener noreferrer">Link</a>
                 <br />
                 <br />
                 <b>How to use: </b><br />
-                Select any exchange from the dropdown. Type a stock symbol like INFY or SBIN and press enter.
+                Click on any image in the gallery to see the explanation. Or upload your own image and get an explanation from the model.
                 <br />
                 <br />
-                <b>Note:</b><br /> Results could take a minute initially as the cloud function needs to wake up.
-                <br />
-                <br />
-                <b>Disclaimer: </b><br />
-                This is a mathematical experiment and should not be used as an investment/trading tool.
-
-
             </p>
         </div>
     );
