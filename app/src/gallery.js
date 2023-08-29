@@ -10,7 +10,68 @@ const Gallery = () => {
 
     const [responseText, setResponseText] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [cameraActive, setCameraActive] = useState(false);
 
+    const startCamera = () => {
+        setCameraActive(true);
+    };
+
+    const stopCamera = () => {
+        setCameraActive(false);
+
+        const videoElement = document.querySelector('video');
+        if (videoElement.srcObject) {
+            const stream = videoElement.srcObject;
+            const tracks = stream.getTracks();
+
+            tracks.forEach(track => track.stop());
+            videoElement.srcObject = null;
+        }
+
+    };
+
+    const handleCapture = async () => {
+        if (!cameraActive) return;
+
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const videoElement = document.querySelector('video');
+            videoElement.srcObject = stream;
+        } catch (error) {
+            console.error('Error accessing camera:', error);
+        }
+    };
+
+    const handleUpload = async () => {
+        if (!cameraActive) return;
+
+        try {
+            const videoElement = document.querySelector('video');
+            const canvas = document.createElement('canvas');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            canvas.getContext('2d').drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(async (blob) => {
+
+                setIsLoading(true);
+                const response = await axios.post(API_URL, blob, {
+                    headers: {
+                        Accept: 'application/json',
+                        Authorization: `Bearer ${API_KEY}`,
+                        'Content-Type': blob.type
+                    },
+                });
+
+                setResponseText(response.data[0]['generated_text']);
+                setIsLoading(false);
+            }, 'image/jpeg');
+        } catch (error) {
+            console.error('Error capturing and uploading image:', error);
+        } finally {
+
+        }
+    };
 
     const handleImageClick = async (imagePath) => {
         try {
@@ -60,7 +121,25 @@ const Gallery = () => {
 
     return (
         <div className="gallery">
-            <h1>Image Gallery</h1>
+            <div className='camera-options'>
+                <h1>2. Live Explanation</h1>
+                <h4>Capture image from camera and get explanation </h4>
+                <button onClick={startCamera}>Open Camera options</button>
+                {cameraActive && (
+                    <div className="camera-container">
+                        <video autoPlay playsInline></video>
+                        <br />
+                        <button onClick={handleCapture}>Start Camera</button>
+                        <button onClick={handleUpload}>Upload</button>
+                        <button onClick={stopCamera}>Stop Camera</button>
+                    </div>
+                )}
+            </div>
+
+            <br></br>
+            <br></br>
+
+            <h1>3. Image Gallery</h1>
             <h4>Click on any image to get explanation </h4>
 
             <div>
@@ -82,7 +161,7 @@ const Gallery = () => {
                 ))}
             </div>
 
-
+            <p>Images taken from Unsplash.com</p>
         </div>
     );
 };

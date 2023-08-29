@@ -5,9 +5,6 @@ import './ImageCaptioningApp.css'
 const API_URL = process.env.REACT_APP_API_URL
 const API_KEY = process.env.REACT_APP_API_KEY
 
-console.log(API_URL)
-console.log(API_KEY)
-
 function ImageCaptioningApp() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [caption, setCaption] = useState('');
@@ -41,8 +38,9 @@ function ImageCaptioningApp() {
     };
 
     return (
-        <div>
-            <h1>Upload Image</h1>
+        <div className='upload'>
+            <h1>1. Upload Image</h1>
+            <h4>Upload image file and get explanation </h4>
             <input type="file" accept="image/*" onChange={handleFileChange} />
             <button onClick={handleUpload}>Get Explanation</button>
             <div className='explanation-container'>

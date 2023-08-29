@@ -29,7 +29,11 @@ const About = () => {
                 <br />
                 <br />
                 <b>How to use: </b><br />
-                Click on any image in the gallery to see the explanation. Or upload your own image and get an explanation from the model.
+                1. Upload image
+                <br />
+                2. Capture image using camera
+                <br />
+                3. Click on any sample image to get explanation
                 <br />
                 <br />
             </p>

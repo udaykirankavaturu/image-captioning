@@ -4,3 +4,10 @@ fileignoreconfig:
 - filename: app/src/ImageCaptioningApp.js
   checksum: 7ce7572820c1dd4571a8d24f0c98769dda66a2b3341a10ec7272b03b6130132e
 version: ""
+
+fileignoreconfig:
+- filename: app/src/gallery.js
+  checksum: b4906d6b42c0d3962ee365aa890443d9e48d28aeb28cf4923ab245d73d125ba5
+- filename: app/src/ImageCaptioningApp.js
+  checksum: 2ac0275a32ba0e34dbf123e0ba74005352d504492b79b5298446c9bd6ff1d261
+version: ""
