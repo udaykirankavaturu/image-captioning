@@ -1,0 +1,21 @@
+/* Navbar Component Styles */
+nav {
+    background-color: #343a40;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Optional: Hover effect for the navbar */
+nav:hover {
+    background-color: #292e33;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './ImageCaptioningApp.css'
 
 const API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large";
 const API_KEY = "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";
