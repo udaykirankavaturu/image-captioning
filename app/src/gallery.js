@@ -27,7 +27,6 @@ const Gallery = () => {
             tracks.forEach(track => track.stop());
             videoElement.srcObject = null;
         }
-
     };
 
     const handleCapture = async () => {
